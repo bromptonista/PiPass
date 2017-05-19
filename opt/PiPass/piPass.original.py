@@ -412,7 +412,6 @@ while doExecute:
         clearVisits = False
 
         # Write the current zone information to NETWORK_CONFIGURATION.
-        subprocess.call('sudo service hostapd stop', stdout=open(os.devnull, 'w'),
         try:
             fo = open(NETWORK_CONFIGURATION, "w")
         except IOError:
@@ -428,7 +427,7 @@ while doExecute:
 
         # Restart hostapd to ensure NETWORK_CONFIGURATION is used. Restarting hostapd will also ensure that it is running if it is currently off.
         # subprocess.call() will wait for the service command to finish before moving on.
-        subprocess.call('sudo service hostapd start', stdout=open(os.devnull, 'w'), stderr=open(os.devnull, 'w'), shell=True)
+        subprocess.call('sudo service hostapd restart', stdout=open(os.devnull, 'w'), stderr=open(os.devnull, 'w'), shell=True)
 
         # Verify that hostapd is running. If it is not, there is a possible WiFi driver issue or hostapd is using an invalid MAC address.
         hostapdStatus = subprocess.check_output('sudo ps -A', shell=True)

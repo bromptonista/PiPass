@@ -98,8 +98,8 @@ exec('sudo pkill --signal SIGQUIT -f piPass.py');
 exec('sudo service hostapd stop');
 exec('sudo killall hostapd');
 
-// Download the latest version of PiPass from the master branch.
-exec('sudo wget -P /tmp/PiPass/ https://github.com/Matthew-Hsu/PiPass/archive/master.zip');
+// Download the latest version of PiPass from bromptonista fork
+exec('sudo wget -P /tmp/PiPass/ https://github.com/bromptonista/PiPass/archive/master.zip');
 
 // Safety is not guranteed. Ensure that master.zip has been downloaded.
 if (file_exists('/tmp/PiPass/master.zip'))
@@ -130,7 +130,7 @@ if (file_exists('/tmp/PiPass/master.zip'))
 
   // Upgrade PiPass to the latest version.
   exec('sudo cp -r /tmp/PiPass/PiPass-master/opt/PiPass/* /opt/PiPass/');
-  exec('sudo cp -r /tmp/PiPass/PiPass-master/var/www/* ' . $dashboard['DASHBOARD']);
+  exec('sudo cp -r /tmp/PiPass/PiPass-master/var/www/html/* ' . $dashboard['DASHBOARD']);
   exec('sudo cp /tmp/PiPass/pipass_dashboard.json /opt/PiPass/config/');
   exec('sudo cp /tmp/PiPass/pipass_config.json ' . $dashboard['DASHBOARD'] . 'assets/json/');
 

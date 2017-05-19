@@ -231,7 +231,7 @@ Now download PiPass from the 1.6 branch as a zip file and extract the contents o
 Most of the features controlled by PiPass can actually be ran through the PiPass Dashboard. Since your Raspberry Pi will act as a web server as well, you will need to make sure it has the permissions to do so. The following commands can grant execution:
 
     ->  sudo chmod -R 755 /opt/PiPass/
-    ->  sudo chmod -R 755 /var/www/
+    ->  sudo chmod -R 755 /var/www/html/
 
 Now this part is a little more involved as we will need to grant the Dashboard some rights for execution. Typically, you would not want to do this on a public webpage, but since PiPass is ran locally and that we have some security measures in place, it should be fine. We'll need root access, so run the following commands:
 
